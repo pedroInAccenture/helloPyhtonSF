@@ -31,5 +31,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: execute
       run: echo The username is ${{ secrets.SF_WAREHOUSE }}
+    - name: executeScript
+      run: sh build.sh
     - name: Test with pytest
       run: python main.py
