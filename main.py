@@ -36,10 +36,11 @@ if __name__ == '__main__':
     # @udf(name="add", is_permanent=False)
     # def udf(x: int) -> int:
     #     return x + 1
-
+    print("Computing....")
     dfUsers = session.sql("SELECT count(*) FROM users")
     dfUsers.show()
     print(dfUsers.collect())
+    print("===> END")
 
 
 
