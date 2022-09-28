@@ -14,6 +14,7 @@ from snowflake.snowpark.functions import udf
 #     "schema": os.environ["snowflake_schema"]
 # }
 
+print("===> reading config file")
 config = configparser.ConfigParser()
 ini_path = os.path.join(os.getcwd(),'config.ini')
 config.read(ini_path)
