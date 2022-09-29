@@ -30,12 +30,13 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: execute
-      run: echo The username is ${{ secrets.SF_WAREHOUSE }}
+      run: echo The username is ${{ secrets.SF_ACCOUNT }}
     - name: executeScript
       run: |
           echo replacing var ... 
           ls -l
           sed -i "s/SF_ACCOUNT_DEV/AAAAA/" config.ini
+          sed -i "s/SF_ACCOUNT_DEV/"${{ secrets.SF_ACCOUNT }}"/" config.ini
           cat config.ini
           echo End script
     - name: Test with pytest
