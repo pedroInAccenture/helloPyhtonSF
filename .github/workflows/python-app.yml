@@ -35,7 +35,7 @@ jobs:
       run: |
           echo replacing var ... 
           ls -l
-          sed -i "s/$SF_WAREHOUSE/$AAAAAAA/" config.ini
+          sed -i "s/$SF.*/$aa/" config.ini
           bash ./build_config.bash
     - name: Test with pytest
       run: python main.py
