@@ -30,7 +30,7 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: execute
-      run: echo The username is ${{ secrets.SF_ACCOUNT }}
+      run: echo The account is ${{ secrets.SF_ACCOUNT }}
     - name: executeScript
       run: |
           echo replacing var ... 
@@ -45,3 +45,5 @@ jobs:
           echo End script
     - name: Test with pytest
       run: python main.py
+    - name: Test with pytest
+      run: echo Storing in S3
