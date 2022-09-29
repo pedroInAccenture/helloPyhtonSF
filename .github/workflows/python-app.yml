@@ -36,6 +36,7 @@ jobs:
           echo replacing var ... 
           ls -l
           sed -i "s/$SF.*/$aa/" config.ini
-          bash ./build_config.bash
+          cat config.ini
+          echo End script
     - name: Test with pytest
       run: python main.py
