@@ -34,7 +34,8 @@ jobs:
     - name: executeScript
       run: |
           echo replacing var ... 
-          sed -i "s/$SF_WAREHOUSE/$AAAAAAA/" ./build_config.sh
+          ls -l
+          sed -i "s/$SF_WAREHOUSE/$AAAAAAA/" config.ini
           bash ./build_config.bash
     - name: Test with pytest
       run: python main.py
