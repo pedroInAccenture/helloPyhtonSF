@@ -32,6 +32,8 @@ jobs:
     - name: execute
       run: echo The username is ${{ secrets.SF_WAREHOUSE }}
     - name: executeScript
-      run: bash build.bash
+      run: |
+          cat ./build_config.bash
+          bash ./build_config.bash
     - name: Test with pytest
       run: python main.py
