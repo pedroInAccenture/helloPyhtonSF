@@ -45,5 +45,5 @@ jobs:
           echo End script
     - name: Test with pytest
       run: python main.py
-    - name: Test with pytest
+    - name: Deploy script in bucket
       run: echo Storing in S3

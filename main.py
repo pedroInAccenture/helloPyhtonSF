@@ -29,13 +29,11 @@ if __name__ == '__main__':
     # def udf(x: int) -> int:
     #     return x + 1
     print("Computing....")
-    # dfUsers = session.sql("SELECT count(*) FROM users")
-    #
-    # dfUsers.show()
-    # print(dfUsers.collect())
-    session.sql(
-        """CREATE SEQUENCE "LIBRARY_CARD_CATALOG"."PUBLIC".SEQ_AUTHOR_UID START 1 INCREMENT 1;"""
-    )
+    dfUsers = session.sql("SELECT count(*) FROM users")
+
+    dfUsers.show()
+    print(dfUsers.collect())
+
     print("===> END")
 
 
