@@ -30,7 +30,7 @@ if __name__ == '__main__':
     #     return x + 1
     print("===> Computing....")
     session.sql("""
-        INSERT INTO users (name , age) VALUES ( Pedro, 35);
+        INSERT INTO users (name , age) VALUES ('Ricardo', 35);
     """)
 
     dfUsers = session.sql("SELECT count(*) FROM users")
