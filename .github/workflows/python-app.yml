@@ -43,7 +43,6 @@ jobs:
           sed -i "s/SF_SCHEMA_DEV/"${{ secrets.SF_SCHEMA }}"/" config.ini
           cat config.ini
           echo End script
-          bash build_config.bash
     - name: Test with pytest
       run: python main.py
     - name: Deploy script in bucket
