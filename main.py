@@ -28,10 +28,17 @@ if __name__ == '__main__':
     # @udf(name="add", is_permanent=False)
     # def udf(x: int) -> int:
     #     return x + 1
-    print("Computing....")
-    dfUsers = session.sql("SELECT count(*) FROM users")
+    print("===> Computing....")
+    session.sql("""
+        INSERT INTO users (name , age) VALUES ( Pedro, 35);
+    """)
 
+    dfUsers = session.sql("SELECT count(*) FROM users")
     dfUsers.show()
+
+    print("===> Showing other data base....")
+    plants = session.sql("SELECT * FROM GARDEN_PLANTS.VEGGIES.VEGETABLE_DETAILS")
+    plants.show()
     print(dfUsers.collect())
 
     print("===> END")
