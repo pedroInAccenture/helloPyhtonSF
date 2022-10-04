@@ -35,12 +35,13 @@ def readDataFromSQL():
 
 
 def readAndWriteInNewTable():
+    print("===> Reading...")
     dfUsers = session.table("users")
     dfUsers.show()
-    print("===> Transforming.")
+    print("===> Transforming...")
     dfTransformed = dfUsers.groupBy(col("age")).count()
     dfTransformed.show()
-    print("===> Writing.")
+    print("===> Writing...")
     dfTransformed.write.mode("overwrite").save_as_table("usersTransformed")
 
 
@@ -147,8 +148,8 @@ if __name__ == '__main__':
     session = Session.builder.configs(connection_parameters).create()
 
     sql = "use warehouse "+getConfig()['SF_WAREHOUSE']
-    session.sql(sql)
-    print("===> use warehouse: "+sql)
+    session.sql(sql).withColumn("query",lit(sql)).show()
+
 
     print("===> START")
 
@@ -163,5 +164,8 @@ if __name__ == '__main__':
     # applyUDTF()
 
     print("===> Suspend warehouse")
-    session.sql("ALTER WAREHOUSE SUSPEND")
+    sql = "alter warehouse SUSPEND"
+    dfSuspend = session.sql(sql)
+    dfSuspend.show()
+
     print("===> END")
