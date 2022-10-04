@@ -18,8 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Execute python
-      run: echo The database is ${{ secrets.SF_DATABASE }}
     - uses: actions/checkout@v3
     - name: Set up Python 3.
       uses: actions/setup-python@v3
@@ -30,7 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: executeScript
+    - name: set up config file
       run: |
           echo start script ... 
           ls -l
@@ -45,5 +43,5 @@ jobs:
 
     - name: Test python code
       run: python main.py
-    - name: Deploy script in bucket
-      run: echo Storing in S3
+    - name: Deploy python script in bucket
+      run: echo Saving file in S3
