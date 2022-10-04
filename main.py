@@ -145,14 +145,14 @@ def registerStoreProcedure():
 if __name__ == '__main__':
     # print(connection_parameters)
     session = Session.builder.configs(connection_parameters).create()
-    # sql = "use warehouse "+getConfig()['SF_WAREHOUSE']
-    # session.sql(sql)
-    # print("===> SQL: "+sql)
+    sql = "use warehouse "+getConfig()['SF_WAREHOUSE']
+    session.sql(sql)
+    print("===> SQL: "+sql)
 
     print("===> Reading")
     # readDataFromSQL()
-    # readAndWriteInNewTable()
-    readFromS3toSf()
+    readAndWriteInNewTable()
+    # readFromS3toSf()
     # readLocalCSVtoSF()
     # addUDFandApply()
     # applyRegisteredUDF()
