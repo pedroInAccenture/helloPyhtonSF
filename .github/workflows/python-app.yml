@@ -19,7 +19,7 @@ jobs:
 
     steps:
     - name: Execute python
-      run: echo The username is ${{ secrets.SF_ACCOUNT }}
+      run: echo The database is ${{ secrets.SF_DATABASE }}
     - uses: actions/checkout@v3
     - name: Set up Python 3.
       uses: actions/setup-python@v3
@@ -33,7 +33,7 @@ jobs:
       run: echo The account is ${{ secrets.SF_ACCOUNT }}
     - name: executeScript
       run: |
-          echo replacing var ... 
+          echo start script ... 
           ls -l
           sed -i "s/SF_ACCOUNT_DEV/"${{ secrets.SF_ACCOUNT }}"/" config.ini
           sed -i "s/SF_USER_DEV/"${{ secrets.SF_USER }}"/" config.ini
@@ -43,7 +43,7 @@ jobs:
           sed -i "s/SF_SCHEMA_DEV/"${{ secrets.SF_SCHEMA }}"/" config.ini
           cat config.ini
           echo End script
-    - name: Test with pytest
+    - name: Test python code
       run: python main.py
     - name: Deploy script in bucket
       run: echo Storing in S3
