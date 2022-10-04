@@ -145,7 +145,7 @@ def registerStoreProcedure():
 if __name__ == '__main__':
     # print(connection_parameters)
     session = Session.builder.configs(connection_parameters).create()
-
+    session.sql("use warehouse "+getConfig()['SF_WAREHOUSE'])
     print("===> Reading.")
     # readDataFromSQL()
     readAndWriteInNewTable()
