@@ -41,7 +41,7 @@ def readAndWriteInNewTable():
     dfTransformed = dfUsers.groupBy(col("age")).count()
     dfTransformed.show()
     print("===> Writing.")
-    dfTransformed.write.mode("overwrite").save_as_table("usersWithLiteral")
+    dfTransformed.write.mode("overwrite").save_as_table("usersTransformed")
 
 
 def readFromS3toSf():
