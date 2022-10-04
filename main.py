@@ -151,8 +151,8 @@ if __name__ == '__main__':
 
     print("===> Reading")
     # readDataFromSQL()
-    readAndWriteInNewTable()
-    # readFromS3toSf()
+    # readAndWriteInNewTable()
+    readFromS3toSf()
     # readLocalCSVtoSF()
     # addUDFandApply()
     # applyRegisteredUDF()
