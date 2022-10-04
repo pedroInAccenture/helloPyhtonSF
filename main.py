@@ -14,7 +14,7 @@ config.read(ini_path)
 
 
 def getConfig():
-    return config['local']
+    return config['Snowflake']
 
 
 connection_parameters = {
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 
     print("===> Reading.")
     # readDataFromSQL()
-    # readAndWriteInNewTable()
+    readAndWriteInNewTable()
     # readFromS3toSf()
     # readLocalCSVtoSF()
     # addUDFandApply()
