@@ -149,19 +149,10 @@ if __name__ == '__main__':
     session.sql(sql)
     print("===> SQL: "+sql)
 
-    print("===> Reading")
-
-    dfUsers = session.table("users")
-    # dfUsers.show()
-    print("===> Transforming.")
-    dfTransformed = dfUsers.groupBy(col("age")).count()
-    # dfTransformed.show()
-    print("===> Writing.")
-    print("===> warehouse: "+session.get_current_warehouse())
-    dfTransformed.write.mode("overwrite").save_as_table("usersTransformed")
+    print("===> START")
 
     # readDataFromSQL()
-    # readAndWriteInNewTable()
+    readAndWriteInNewTable()
     # readFromS3toSf()
     # readLocalCSVtoSF()
     # addUDFandApply()
