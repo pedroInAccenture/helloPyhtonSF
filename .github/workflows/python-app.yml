@@ -29,8 +29,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: execute
-      run: echo The account is ${{ secrets.SF_ACCOUNT }}
+
     - name: executeScript
       run: |
           echo start script ... 
@@ -43,6 +42,7 @@ jobs:
           sed -i "s/SF_SCHEMA_DEV/"${{ secrets.SF_SCHEMA }}"/" config.ini
           cat config.ini
           echo End script
+
     - name: Test python code
       run: python main.py
     - name: Deploy script in bucket
