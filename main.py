@@ -145,9 +145,10 @@ def registerStoreProcedure():
 if __name__ == '__main__':
     # print(connection_parameters)
     session = Session.builder.configs(connection_parameters).create()
+
     sql = "use warehouse "+getConfig()['SF_WAREHOUSE']
     session.sql(sql)
-    print("===> SQL: "+sql)
+    print("===> use warehouse: "+sql)
 
     print("===> START")
 
@@ -161,5 +162,6 @@ if __name__ == '__main__':
     # registerUDTF()
     # applyUDTF()
 
-
+    print("===> Suspend warehouse")
+    session.sql("ALTER WAREHOUSE SUSPEND")
     print("===> END")
